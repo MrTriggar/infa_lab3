@@ -60,4 +60,4 @@ class Test(Base):
     - Почта
     - Продаваемые товары
 
-![](Use_case_puml.png)
+![Фотка](Use_case_puml.png)
