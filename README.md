@@ -53,34 +53,3 @@ class Test(Base):
 
 
 
-## Что нужно для запуска?
-
-- Git
-- Python 3.13
-- docker и docker compose
-
-## Запуск проекта
-
-1. Клонирование репозитория с github
-
-```git clone https://github.com/MrTriggar/infa_lab3.git```
-
-2. Переход в корень проекта
-
-```cd ```
-
-3. Создание виртуального окружения
-
-```python -m venv venv```
-
-4. Активация виртуального окружения
-
-```venv\Scripts\activate```
-
-5. Установка зависимостей
-
-```pip install -r requirements.txt```
-
-6. Запуск работы
-
-```python scr/main/main.py```
