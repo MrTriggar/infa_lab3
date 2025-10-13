@@ -1,0 +1,22 @@
+@startuml
+left to right direction
+
+actor "Покупатель" as Customer
+actor "Продавец" as Seller
+
+Customer --> (Поиск товаров)
+Customer --> (Добавление товаров в корзину)
+Customer --> (Отбор товаров в корзине)
+Customer --> (Авторизация)
+Customer --> (Создание заказа)
+Customer --> (Оплата заказа)
+
+Seller --> (Размещение товара в магазине)
+Seller --> (Изменение данных товара)
+Seller --> (Удаление товара)
+Seller --> (Составление списка продаваемых товаров)
+
+note right of Seller
+  (если продавец - одиночный пользователь)
+end note
+@enduml
