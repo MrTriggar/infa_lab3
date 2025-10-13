@@ -59,3 +59,5 @@ class Test(Base):
     - Имя Фамилия
     - Почта
     - Продаваемые товары
+
+!(Use_case_puml.png)
