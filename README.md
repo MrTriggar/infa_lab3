@@ -62,4 +62,4 @@ class Test(Base):
 
 ##Диаграммы
 
-![Диаграмма](htttps://github/MrTriggar/infa_lab3/raw/main//UseCase.puml)
+![Диаграмма](htttps://github/MrTriggar/infa_lab3/raw/main//Use_case_puml.png)
