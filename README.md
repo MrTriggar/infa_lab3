@@ -60,6 +60,3 @@ class Test(Base):
     - Почта
     - Продаваемые товары
 
-##Диаграммы
-
-![Диаграмма](htttps://github/MrTriggar/infa_lab3/raw/main//Use_case_puml.png)
