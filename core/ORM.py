@@ -23,8 +23,8 @@ class ORM:
     @staticmethod
     def insert_product_data():
         with localsession() as session:
-            product1 = Product(product_name="Книга", price=600, categorie_name="литература")
-            product2 = Product(product_name="нига", price=1600, categorie_name="что")
+            product1 = Product(product_name="Книга", price=600, categorie_id=1, seller_id=1)
+            product2 = Product(product_name="нига", price=1600, categorie_id=2, seller_id=1)
         session.add_all([product1, product2])
         session.commit()
 
@@ -39,22 +39,23 @@ class ORM:
     @staticmethod
     def insert_seller_data():
         with localsession() as session:
-            seller = Seller(seller_name="Вроде_ровно", product_id=1)
-        session.add_all(seller)
+            seller = Seller(seller_name="Вроде_ровно")
+        session.add(seller)
         session.commit()
 
     @staticmethod
     def insert_categorie_data():
         with localsession() as session:
-            book_categorie = Categories(categorie_name="литература")
-        session.add_all(book_categorie)
+            book_categorie1 = Categories(categorie_name="литература")
+            book_categorie2 = Categories(categorie_name="что")
+        session.add_all([book_categorie1, book_categorie2])
         session.commit()
 
     @staticmethod
     def insert_order_data():
         with localsession() as session:
-            order = Order(bayer_id=1, order_price=1200, count_of_products=2)
-        session.add_all(order)
+            order = Order(buyer_id=1, order_price=1200, count_of_products=2, product_id=1)
+        session.add(order)
         session.commit()
 
     @staticmethod

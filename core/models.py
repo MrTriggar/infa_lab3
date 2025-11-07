@@ -1,6 +1,6 @@
-from typing import Annotated, List
-from sqlalchemy import Table, Column, Integer, String, MetaData, ForeignKey, func, text
-from sqlalchemy.orm import Session, sessionmaker, DeclarativeBase, Mapped, mapped_column, relationship
+from typing import List
+from sqlalchemy import String, ForeignKey, text
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from datetime import datetime
 from core.database import *
 
@@ -17,7 +17,7 @@ class Buyer(Base):
         onupdate=datetime.utcnow
     )
 
-    orders: Mapped[List["Order"]] = relationship(back_populates="buyers")
+    orders: Mapped[List["Order"]] = relationship(back_populates="buyer")
 
 
 class Seller(Base):
@@ -31,7 +31,7 @@ class Seller(Base):
         onupdate=datetime.utcnow
     )
 
-    products: Mapped[List["Product"]] = relationship(back_populates="sellers")
+    products: Mapped[List["Product"]] = relationship(back_populates="seller")
 
 
 class Categories(Base):
@@ -40,7 +40,7 @@ class Categories(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     categorie_name: Mapped[str] = mapped_column(String(200))
 
-    products: Mapped[List["Product"]] = relationship(back_populates="categories")
+    products: Mapped[List["Product"]] = relationship(back_populates="category")
 
 
 class Product(Base):
@@ -52,8 +52,9 @@ class Product(Base):
     categorie_id: Mapped[int] = mapped_column(ForeignKey("categories.id", ondelete="CASCADE"))
     seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.id", ondelete="CASCADE"))
 
-    categories: Mapped[List["Categories"]] = relationship(back_populates="products")
+    category: Mapped[List["Categories"]] = relationship(back_populates="products")
     seller: Mapped["Seller"] = relationship(back_populates="products")
+    orders: Mapped[List["Order"]] = relationship(back_populates="products")
 
 
 class Order(Base):
@@ -64,6 +65,7 @@ class Order(Base):
     order_price: Mapped[int]
     count_of_products: Mapped[int]
     created_at: Mapped[datetime] = mapped_column(server_default=text("TIMEZONE('utc', now())"))
+    product_id: Mapped[int] = mapped_column(ForeignKey("products.id", ondelete="CASCADE"))
 
     buyer: Mapped["Buyer"] = relationship(back_populates="orders")
     products: Mapped[List["Product"]] = relationship(back_populates="orders")
