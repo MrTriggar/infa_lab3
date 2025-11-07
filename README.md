@@ -60,3 +60,5 @@ class Test(Base):
     - Почта
     - Продаваемые товары
 
+##ER-диаграмма
+![ER][https://github.com/MrTriggar/infa_lab3/blob/main/docs/diagrams/ER.jpg]
