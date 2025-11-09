@@ -79,3 +79,15 @@ class ORM:
             buyer_ya = session.get(Buyer, buyer_id)
             buyer_ya.buyer_firstname = new_firstname
         session.commit()
+
+    @staticmethod
+    def get_order_detail():
+        with localsession() as session:
+            query = select(
+                Order.id,
+                Order.order_price,
+                Order.count_of_products,
+                Buyer.buyer_firstname
+            ).select_from(Order).join(Buyer.id)
+
+            res = session.execute(query).all()
