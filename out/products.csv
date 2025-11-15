@@ -1,0 +1,3 @@
+categorie_id,category_categorie_name,category_id,id,orders_0_buyer_id,orders_0_count_of_products,orders_0_created_at,orders_0_id,orders_0_order_price,orders_0_product_id,price,product_name,seller_id,seller_registred_at,seller_seller_name,seller_updated_at
+1,литература,1,1,1,2,2025-11-15T10:09:28.662066,1,1200,1,600,Книга,1,2025-11-15T10:09:28.646428,Вроде_ровно,2025-11-15T10:09:28.646428
+2,что,2,2,,,,,,,1600,нига,1,2025-11-15T10:09:28.646428,Вроде_ровно,2025-11-15T10:09:28.646428

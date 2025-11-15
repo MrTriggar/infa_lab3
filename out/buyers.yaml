@@ -1,0 +1,18 @@
+- buyer_firstname: Арч
+  buyer_surname: Линукс
+  id: 1
+  orders:
+  - buyer_id: 1
+    count_of_products: 2
+    created_at: '2025-11-15T10:09:28.662066'
+    id: 1
+    order_price: 1200
+    product_id: 1
+  registred_at: '2025-11-15T10:09:28.651456'
+  updated_at: '2025-11-15T10:09:28.651456'
+- buyer_firstname: Я
+  buyer_surname: Куплю
+  id: 2
+  orders: []
+  registred_at: '2025-11-15T10:09:28.651456'
+  updated_at: '2025-11-15T10:09:28.651456'

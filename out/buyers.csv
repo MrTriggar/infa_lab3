@@ -1,0 +1,3 @@
+buyer_firstname,buyer_surname,id,orders_0_buyer_id,orders_0_count_of_products,orders_0_created_at,orders_0_id,orders_0_order_price,orders_0_product_id,registred_at,updated_at
+Арч,Линукс,1,1,2,2025-11-15T10:09:28.662066,1,1200,1,2025-11-15T10:09:28.651456,2025-11-15T10:09:28.651456
+Я,Куплю,2,,,,,,,2025-11-15T10:09:28.651456,2025-11-15T10:09:28.651456

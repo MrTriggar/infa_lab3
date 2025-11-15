@@ -1,7 +1,5 @@
-from sqlalchemy import create_engine, select
-from core.database import Base, engine, localsession
 from core.models import *
-from core.dataclasses import Tables
+from core.exporter import DatabaseExporter
 
 class ORM:
     # def __init__(self, database_url):
@@ -63,8 +61,8 @@ class ORM:
         with localsession() as session:
             query = select(
                 Buyer.id,
-                Buyer.first_name,
-                Buyer.second_name
+                Buyer.buyer_firstname,
+                Buyer.buyer_surname
             ).select_from(Buyer)
 
             res = session.execute(query).all()
@@ -91,3 +89,57 @@ class ORM:
             ).select_from(Order).join(Buyer.id)
 
             res = session.execute(query).all()
+
+    @staticmethod
+    def export_data(table_name=None, include_relations=False):
+        """
+        Экспортирует данные в JSON, CSV, XML, YAML
+        """
+        exporter = DatabaseExporter()
+
+        if table_name:
+            # Экспорт конкретной таблицы
+            return exporter.export_table(table_name, include_relations)
+        else:
+            # Экспорт всех таблиц
+            return exporter.export_all_tables()
+
+    @staticmethod
+    def show_export_menu():
+        """
+        Показывает меню для выбора таблицы для экспорта
+        """
+        tables = {
+            '1': ('buyers', 'Покупатели'),
+            '2': ('sellers', 'Продавцы'),
+            '3': ('categories', 'Категории'),
+            '4': ('products', 'Товары'),
+            '5': ('orders', 'Заказы'),
+            '6': ('all', 'Все таблицы')
+        }
+
+        exporter = DatabaseExporter()
+
+        print("\n" + "=" * 50)
+        print("ЭКСПОРТ ДАННЫХ В ФАЙЛЫ")
+        print("=" * 50)
+
+        for key, (table, description) in tables.items():
+            print(f"{key}. {description} ({table})")
+
+        choice = input("\nВыберите таблицу для экспорта: ").strip()
+
+        if choice in tables:
+            table_name, description = tables[choice]
+
+            if table_name == 'all':
+                return exporter.export_all_tables()
+            else:
+                include_relations = input(
+                    f"Включать связанные данные для {description}? (y/n): "
+                ).strip().lower() == 'y'
+
+                return ORM.export_data(table_name, include_relations)
+        else:
+            print("Неверный выбор!")
+            return None

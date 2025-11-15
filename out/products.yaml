@@ -1,0 +1,34 @@
+- categorie_id: 1
+  category:
+    categorie_name: литература
+    id: 1
+  id: 1
+  orders:
+  - buyer_id: 1
+    count_of_products: 2
+    created_at: '2025-11-15T10:09:28.662066'
+    id: 1
+    order_price: 1200
+    product_id: 1
+  price: 600
+  product_name: Книга
+  seller:
+    id: 1
+    registred_at: '2025-11-15T10:09:28.646428'
+    seller_name: Вроде_ровно
+    updated_at: '2025-11-15T10:09:28.646428'
+  seller_id: 1
+- categorie_id: 2
+  category:
+    categorie_name: что
+    id: 2
+  id: 2
+  orders: []
+  price: 1600
+  product_name: нига
+  seller:
+    id: 1
+    registred_at: '2025-11-15T10:09:28.646428'
+    seller_name: Вроде_ровно
+    updated_at: '2025-11-15T10:09:28.646428'
+  seller_id: 1
